@@ -1,0 +1,733 @@
+@use "mixin" as m;
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Hina Mincho", serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: 1053px;
+    margin: 0 auto;
+    padding: 0 3%;
+}
+
+.btn {
+    display: block;
+    padding: 10px 20px;
+    color: #000;
+    background-color: #EC982A;
+    border-radius: 30px;
+    font-size: 2.0rem;
+    margin-right: 35px;
+}
+
+
+
+.section-title {
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before,
+    &::after {
+        content: "";
+        height: 4px;
+        width: 10%;
+        background-color: #666;
+    }
+
+    &::before {
+        margin-right: 40px;
+    }
+
+    &::after {
+        margin-left: 40px;
+    }
+
+    h2 {
+        font-size: 5.0rem;
+
+        @include m.sp {
+            font-size: 2.4rem;
+        }
+
+    }
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Caveat", system-ui;
+        font-size: 16rem;
+        color: #000;
+        opacity: 0.1;
+
+        @include m.sp {
+            font-size: 10rem;
+        }
+    }
+}
+
+.fadein {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 2s;
+}
+
+.header {
+    height: 140px;
+    background-color: #2C65AE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-logo {
+
+        img {
+            width: 280px;
+        }
+    }
+
+    nav {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .header-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 20px;
+
+                i {
+                    margin-right: 8px;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 3.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    color: #EC982A;
+                }
+            }
+
+            /* デフォルト表示（PCなど） */
+            .nav-item .text,
+            .nav-item .phone-number {
+                display: inline;
+            }
+
+            .nav-item .text {
+                font-size: 1.4rem;
+                margin-right: 8px;
+            }
+        }
+
+        /* スマートフォン表示の場合 */
+        @include m.sp {
+
+            .header-nav-list .nav-item .text,
+            .header-nav-list .nav-item .phone-number {
+                display: none;
+                /* テキスト部分を非表示 */
+            }
+
+            .header-nav-list .nav-item i {
+                font-size: 3.2rem;
+                margin-right: 0;
+                /* アイコンのサイズを調整（任意） */
+            }
+        }
+
+        .form.btn {
+            transition: all 0.5s;
+            font-size: 2.4rem;
+
+            &:hover {
+                background-color: #4CAF50;
+            }
+
+            a {
+
+                /* スマホ表示で「お問い合わせ」テキストを非表示 */
+                @include m.sp {
+                    font-size: 0;
+                }
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    /* デフォルト表示（PCなど） */
+    .header-nav-list .nav-item .text,
+    .header-nav-list .nav-item .phone-number {
+        display: inline;
+    }
+
+    /* スマートフォン表示の場合 */
+    @include m.sp {
+
+        .header-nav-list .nav-item .text,
+        .header-nav-list .nav-item .phone-number {
+            display: none;
+            /* テキスト部分を非表示 */
+        }
+
+        .header-nav-list .nav-item i {
+            font-size: 3.2rem;
+            /* アイコンのサイズを調整（任意） */
+        }
+    }
+
+}
+
+
+
+.mainvisual {
+
+    width: 100%;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.first-contact-contents {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    background-image: url('../img/contact-background.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+
+    p {
+        font-size: 4.8rem;
+        color: #fff;
+        padding: 20px 0px;
+
+        @include m.sp {
+            font-size: 2.4rem;
+        }
+    }
+
+    .btn {
+        width: 25%;
+        margin: 40px auto;
+        padding: 20px 20px;
+
+        @include m.sp {
+            width: 80%;
+            font-size: 2.4rem;
+        }
+
+    }
+
+    .c-button._shiny {
+        display: block;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        overflow: hidden;
+        transition: 300ms;
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            top: -180px;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #b5e7ff;
+            transition: 300ms;
+            animation: shinyshiny 2.5s ease-in-out infinite;
+        }
+    }
+
+
+    .c-button._shiny:hover {
+        text-decoration: none;
+        color: #fff;
+        box-shadow: none;
+        transform: translateY(3px);
+    }
+
+    @keyframes shinyshiny {
+        0% {
+            -webkit-transform: scale(0) rotate(45deg);
+            opacity: 0;
+        }
+
+        80% {
+            -webkit-transform: scale(0) rotate(45deg);
+            opacity: 0.5;
+        }
+
+        81% {
+            -webkit-transform: scale(4) rotate(45deg);
+            opacity: 1;
+        }
+
+        100% {
+            -webkit-transform: scale(50) rotate(45deg);
+            opacity: 0;
+        }
+    }
+}
+
+.problem {
+    background-color: #F4F7FF;
+    padding: 73px 0px 300px 0px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 65%, 50% 85%, 0% 65%);
+    z-index: 10;
+
+    @include m.sp {
+        background-color: #F4F7FF;
+        padding: 73px 0px 300px 0px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 70%, 0% 50%);
+        z-index: 10;
+    }
+
+
+    p {
+        text-align: center;
+        font-size: 3.0rem;
+        font-weight: bold;
+
+        @include m.sp {
+            font-size: 2.4rem;
+        }
+    }
+
+    .img {
+        width: 100%;
+        display: flex;
+        /* Flexboxの有効化 */
+        justify-content: center;
+        /* 水平方向の中央寄せ */
+        margin-top: 80px;
+
+        img {
+            max-width: 80%;
+            /* 画像の幅を親要素に合わせて調整 */
+            height: auto;
+            /* 縦横比を保つ */
+        }
+    }
+
+
+}
+
+.problem-second-contents {
+    margin-top: -80px;
+    margin-bottom: 40px;
+
+    @include m.sp {
+        margin-top: -168px;
+    }
+
+
+
+    .text {
+        text-align: center;
+
+        p {
+            color: #000;
+
+            &:nth-child(1) {
+                font-size: 2.4rem;
+
+                @include m.sp {
+                    font-size: 1.8rem;
+                    padding: 0px 80px;
+                }
+            }
+
+            &:nth-child(2) {
+                font-size: 6.4rem;
+
+                @include m.sp {
+                    font-size: 2.4rem;
+                    padding: 10px 99px;
+
+
+                }
+            }
+        }
+    }
+
+    .eachTextAnime span {
+        opacity: 0;
+    }
+
+    .appeartext span {
+        animation: text_anime_on 1s ease-out forwards;
+    }
+
+    @keyframes text_anime_on {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .firstText.appeartext span {
+        animation-delay: 0s;
+        /* 最初のテキストの遅延なし */
+    }
+
+    .secondText.appeartext span {
+        animation-delay: 1.5s;
+        /* 2番目のテキストを2秒遅らせて表示 */
+    }
+}
+
+
+
+
+
+
+
+
+.point {
+    background-color: #313A68;
+    padding: 98px 0px 128px 0px;
+
+    .section-title {
+
+        &::before,
+        &::after {
+            content: "";
+            height: 4px;
+            width: 10%;
+            background-color: #ffffff;
+        }
+    }
+
+    h2 {
+        color: #ffffff;
+    }
+
+    P {
+        color: #ffffff;
+    }
+
+    &-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 36px;
+        margin-top: 40px;
+
+        @include m.sp {
+            grid-template-columns: 1fr;
+        }
+
+        li {
+            border: 5px solid #ffffff;
+            text-align: center;
+            background-color: #D9D9D9;
+            position: relative;
+            margin-top: 96px;
+            padding: 40px 40px;
+
+            @include m.sp {
+                width: 70%;
+                margin: 96px auto 0 auto;
+                /* 上下のマージンはそのまま、左右中央寄せ */
+
+            }
+
+            .point-number {
+                color: #000;
+                font-size: 4.0rem;
+                position: absolute;
+                top: -27%;
+                left: 25%;
+                color: #ffffff;
+
+                @include m.sp {
+                    left: 34%;
+                    font-size: 2.4rem;
+                }
+
+                span {
+                    font-family: "Caveat", system-ui;
+                    color: #EC982A;
+                    font-size: 6.4rem;
+                }
+            }
+
+            img {
+                width: 50%;
+
+                @include m.sp {
+                    width: 35%;
+                }
+            }
+
+            .text {
+                color: #000;
+                margin-top: 20px;
+                text-align: left;
+                font-size: 2.0rem;
+
+                @include m.sp {
+                    padding: 0px 40px;
+                }
+            }
+        }
+    }
+}
+
+// step
+.step {
+    padding: 98px 0px 128px 0px;
+
+
+
+    .step-content {
+        display: flex;
+        margin-top: 40px;
+
+        @include m.sp {
+            flex-direction: column;
+        }
+
+        .figure {
+            width: 40%;
+            text-align: center;
+
+            @include m.sp {
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            li {
+                background-color: gray;
+                margin: 98px 0px 115px;
+                padding: 20px 20px;
+                color: #ffffff;
+                font-size: 2.4rem;
+                position: relative;
+
+                &:nth-child(5) {
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    bottom: -88%;
+                    left: 43%;
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-right: 15px solid transparent;
+                    border-left: 15px solid transparent;
+                    border-top: 26px solid #313a60;
+                    border-bottom: 0;
+
+                }
+            }
+        }
+
+        .description {
+            width: 60%;
+            margin-left: 40px;
+
+            @include m.sp {
+                width: 70%;
+                margin-left: 0;
+                margin: 0 auto;
+            }
+
+
+            dt {
+                font-size: 2.4rem;
+                margin-top: 54px;
+                font-weight: bold;
+
+                span {
+                    background-color: #EC982A;
+                    border-radius: 50%;
+                    width: 32px;
+                    /* 幅と高さを同じに設定 */
+                    height: 32px;
+                    display: inline-block;
+                    /* 必要に応じて設定 */
+                    text-align: center;
+                    margin-right: 8px;
+                    color: #ffffff;
+                    line-height: 32px;
+                }
+
+            }
+
+            dd {
+                margin-bottom: 40px;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+.contact {
+    background-color: #313A68;
+    padding: 98px 0px 128px 0px;
+    text-align: center;
+
+    .section-title {
+
+        &::before,
+        &::after {
+            content: "";
+            height: 4px;
+            width: 10%;
+            background-color: #ffffff;
+        }
+
+        h2 {
+            color: #EC982A;
+        }
+
+        P {
+            color: #ffffff;
+            font-size: 16rem;
+
+            @include m.sp {
+                font-size: 10rem;
+            }
+        }
+
+    }
+
+    p {
+        font-size: 1.6rem;
+        margin-bottom: 40px;
+        color: #ffffff;
+    }
+
+    .wrapper {
+        margin-top: 40px;
+
+        h3 {
+            margin: 20px 0px;
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: normal;
+        }
+
+        form {
+            font-size: 1.6rem;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 30px;
+            padding: 5% 5%;
+
+
+
+            label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+
+
+
+                dt {
+                    width: 35%;
+                    font-weight: bold;
+
+
+                }
+
+                dd {
+                    width: 65%;
+
+
+                }
+            }
+
+
+            input,
+            textarea {
+                width: 100%;
+                border: 1px solid #000;
+                border-radius: 10px;
+                padding: 10px;
+                box-sizing: border-box;
+                font-size: 1.6rem;
+
+
+            }
+
+            textarea {
+                padding: 10px;
+                height: 100px;
+                resize: vertical;
+            }
+
+            input[type="submit"] {
+                display: block;
+                padding: 3% 0;
+                width: 40%;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 1.6rem;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 4px #999;
+                cursor: pointer;
+                transition: transform 0.1s, box-shadow 0.1s;
+
+
+                &:active {
+                    transform: translateY(4px);
+                    box-shadow: 0 2px #666;
+                }
+            }
+        }
+    }
+}

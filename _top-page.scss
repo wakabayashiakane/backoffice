@@ -2,6 +2,8 @@
 
 html {
     font-size: 62.5%;
+    overflow-x: hidden;
+    /* 水平方向のはみ出しを防ぐ */
 }
 
 body {
@@ -20,6 +22,11 @@ li {
     max-width: 1053px;
     margin: 0 auto;
     padding: 0 3%;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .btn {
@@ -91,13 +98,19 @@ li {
 .header {
     height: 140px;
     background-color: #2C65AE;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: inherit;
+    }
 
     .header-logo {
 
         img {
+            max-width: 100%;
             width: 280px;
         }
     }
@@ -239,7 +252,7 @@ li {
         padding: 20px 0px;
 
         @include m.sp {
-            font-size: 2.4rem;
+            font-size: 2.0rem;
         }
     }
 
@@ -250,7 +263,7 @@ li {
 
         @include m.sp {
             width: 80%;
-            font-size: 2.4rem;
+            font-size: 1.8rem;
         }
 
     }
@@ -464,7 +477,7 @@ li {
             background-color: #D9D9D9;
             position: relative;
             margin-top: 96px;
-            padding: 40px 40px;
+            // padding: 40px 40px;
 
             @include m.sp {
                 width: 70%;

@@ -1,6 +1,8 @@
 @charset "UTF-8";
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
+  /* 水平方向のはみ出しを防ぐ */
 }
 
 body {
@@ -19,6 +21,11 @@ li {
   max-width: 1053px;
   margin: 0 auto;
   padding: 0 3%;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .btn {
@@ -83,13 +90,17 @@ li {
 .header {
   height: 140px;
   background-color: #2C65AE;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   /* デフォルト表示（PCなど） */
   /* スマートフォン表示の場合 */
 }
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+}
 .header .header-logo img {
+  max-width: 100%;
   width: 280px;
 }
 .header nav {
@@ -206,7 +217,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .first-contact-contents p {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 }
 .first-contact-contents .btn {
@@ -217,7 +228,7 @@ li {
 @media screen and (max-width: 768px) {
   .first-contact-contents .btn {
     width: 80%;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
 }
 .first-contact-contents .c-button._shiny {
@@ -425,7 +436,6 @@ li {
   background-color: #D9D9D9;
   position: relative;
   margin-top: 96px;
-  padding: 40px 40px;
 }
 @media screen and (max-width: 768px) {
   .point-list li {

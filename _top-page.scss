@@ -85,6 +85,7 @@ li {
 
         @include m.sp {
             font-size: 10rem;
+            top: 25%;
         }
     }
 }
@@ -99,6 +100,9 @@ li {
     height: 140px;
     background-color: #2C65AE;
 
+    @include m.sp {
+        height: 100px;
+    }
 
     .container {
         display: flex;
@@ -108,7 +112,6 @@ li {
     }
 
     .header-logo {
-
         img {
             max-width: 100%;
             width: 280px;
@@ -125,7 +128,8 @@ li {
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
+            /* 右端に寄せる */
             align-items: center;
 
             li {
@@ -136,6 +140,7 @@ li {
 
                 i {
                     margin-right: 8px;
+                    max-width: 100%;
                 }
             }
 
@@ -166,17 +171,20 @@ li {
 
         /* スマートフォン表示の場合 */
         @include m.sp {
+            .header-nav-list {
+                justify-content: flex-end;
+                /* SP時に右端に寄せる */
+            }
 
             .header-nav-list .nav-item .text,
             .header-nav-list .nav-item .phone-number {
                 display: none;
-                /* テキスト部分を非表示 */
             }
 
             .header-nav-list .nav-item i {
-                font-size: 3.2rem;
+                font-size: 2.8rem;
                 margin-right: 0;
-                /* アイコンのサイズを調整（任意） */
+                max-width: 100%;
             }
         }
 
@@ -189,8 +197,6 @@ li {
             }
 
             a {
-
-                /* スマホ表示で「お問い合わせ」テキストを非表示 */
                 @include m.sp {
                     font-size: 0;
                 }
@@ -214,15 +220,12 @@ li {
         .header-nav-list .nav-item .text,
         .header-nav-list .nav-item .phone-number {
             display: none;
-            /* テキスト部分を非表示 */
         }
 
         .header-nav-list .nav-item i {
             font-size: 3.2rem;
-            /* アイコンのサイズを調整（任意） */
         }
     }
-
 }
 
 
@@ -230,6 +233,22 @@ li {
 .mainvisual {
 
     width: 100%;
+
+    .sp {
+        display: none;
+
+        @include m.sp {
+            display: block;
+        }
+    }
+
+    .pc {
+        display: block;
+
+        @include m.sp {
+            display: none;
+        }
+    }
 
     img {
         width: 100%;
@@ -353,11 +372,17 @@ li {
         /* 水平方向の中央寄せ */
         margin-top: 80px;
 
+
         img {
             max-width: 80%;
             /* 画像の幅を親要素に合わせて調整 */
             height: auto;
             /* 縦横比を保つ */
+
+
+            @include m.sp {
+                max-width: 100%;
+            }
         }
     }
 
@@ -477,14 +502,9 @@ li {
             background-color: #D9D9D9;
             position: relative;
             margin-top: 96px;
-            // padding: 40px 40px;
+            padding: 20px 20px;
 
-            @include m.sp {
-                width: 70%;
-                margin: 96px auto 0 auto;
-                /* 上下のマージンはそのまま、左右中央寄せ */
 
-            }
 
             .point-number {
                 color: #000;
@@ -496,13 +516,15 @@ li {
 
                 @include m.sp {
                     left: 34%;
+                    top: -40%;
                     font-size: 2.4rem;
                 }
 
                 span {
-                    font-family: "Caveat", system-ui;
                     color: #EC982A;
                     font-size: 6.4rem;
+                    display: inline-block;
+                    margin-left: 8px;
                 }
             }
 
@@ -520,9 +542,7 @@ li {
                 text-align: left;
                 font-size: 2.0rem;
 
-                @include m.sp {
-                    padding: 0px 40px;
-                }
+
             }
         }
     }
@@ -547,7 +567,7 @@ li {
             text-align: center;
 
             @include m.sp {
-                width: 70%;
+                width: 80%;
                 margin: 0 auto;
             }
 
@@ -587,7 +607,7 @@ li {
             margin-left: 40px;
 
             @include m.sp {
-                width: 70%;
+                width: 80%;
                 margin-left: 0;
                 margin: 0 auto;
             }

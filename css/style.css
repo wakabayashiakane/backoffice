@@ -78,6 +78,7 @@ li {
 @media screen and (max-width: 768px) {
   .section-title p {
     font-size: 10rem;
+    top: 25%;
   }
 }
 
@@ -92,6 +93,11 @@ li {
   background-color: #2C65AE;
   /* デフォルト表示（PCなど） */
   /* スマートフォン表示の場合 */
+}
+@media screen and (max-width: 768px) {
+  .header {
+    height: 100px;
+  }
 }
 .header .container {
   display: flex;
@@ -114,7 +120,8 @@ li {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  /* 右端に寄せる */
   align-items: center;
   /* デフォルト表示（PCなど） */
 }
@@ -126,6 +133,7 @@ li {
 }
 .header nav .header-nav-list li i {
   margin-right: 8px;
+  max-width: 100%;
 }
 .header nav .header-nav-list a {
   text-decoration: none;
@@ -147,15 +155,18 @@ li {
   margin-right: 8px;
 }
 @media screen and (max-width: 768px) {
+  .header nav .header-nav-list {
+    justify-content: flex-end;
+    /* SP時に右端に寄せる */
+  }
   .header nav .header-nav-list .nav-item .text,
 .header nav .header-nav-list .nav-item .phone-number {
     display: none;
-    /* テキスト部分を非表示 */
   }
   .header nav .header-nav-list .nav-item i {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     margin-right: 0;
-    /* アイコンのサイズを調整（任意） */
+    max-width: 100%;
   }
 }
 .header nav .form.btn {
@@ -164,9 +175,6 @@ li {
 }
 .header nav .form.btn:hover {
   background-color: #4CAF50;
-}
-.header nav .form.btn a {
-  /* スマホ表示で「お問い合わせ」テキストを非表示 */
 }
 @media screen and (max-width: 768px) {
   .header nav .form.btn a {
@@ -184,16 +192,30 @@ li {
   .header .header-nav-list .nav-item .text,
 .header .header-nav-list .nav-item .phone-number {
     display: none;
-    /* テキスト部分を非表示 */
   }
   .header .header-nav-list .nav-item i {
     font-size: 3.2rem;
-    /* アイコンのサイズを調整（任意） */
   }
 }
 
 .mainvisual {
   width: 100%;
+}
+.mainvisual .sp {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .mainvisual .sp {
+    display: block;
+  }
+}
+.mainvisual .pc {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .mainvisual .pc {
+    display: none;
+  }
 }
 .mainvisual img {
   width: 100%;
@@ -335,6 +357,11 @@ li {
   height: auto;
   /* 縦横比を保つ */
 }
+@media screen and (max-width: 768px) {
+  .problem .img img {
+    max-width: 100%;
+  }
+}
 
 .problem-second-contents {
   margin-top: -80px;
@@ -436,13 +463,7 @@ li {
   background-color: #D9D9D9;
   position: relative;
   margin-top: 96px;
-}
-@media screen and (max-width: 768px) {
-  .point-list li {
-    width: 70%;
-    margin: 96px auto 0 auto;
-    /* 上下のマージンはそのまま、左右中央寄せ */
-  }
+  padding: 20px 20px;
 }
 .point-list li .point-number {
   color: #000;
@@ -455,13 +476,15 @@ li {
 @media screen and (max-width: 768px) {
   .point-list li .point-number {
     left: 34%;
+    top: -40%;
     font-size: 2.4rem;
   }
 }
 .point-list li .point-number span {
-  font-family: "Caveat", system-ui;
   color: #EC982A;
   font-size: 6.4rem;
+  display: inline-block;
+  margin-left: 8px;
 }
 .point-list li img {
   width: 50%;
@@ -476,11 +499,6 @@ li {
   margin-top: 20px;
   text-align: left;
   font-size: 2rem;
-}
-@media screen and (max-width: 768px) {
-  .point-list li .text {
-    padding: 0px 40px;
-  }
 }
 
 .step {
@@ -501,7 +519,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .step .step-content .figure {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
   }
 }
@@ -535,7 +553,7 @@ li {
 }
 @media screen and (max-width: 768px) {
   .step .step-content .description {
-    width: 70%;
+    width: 80%;
     margin-left: 0;
     margin: 0 auto;
   }
